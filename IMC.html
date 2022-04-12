@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <html>
+<head>
+    <script src="app.js"></script>
+</head>
+  
+<body>
+    <div class="container">
+        <h1>IMC Calculadora</h1>
+        <p>Altura</p>
+  
+        <input type="text" id="altura">
+  
+        <p>Peso</p>
+  
+        <input type="text" id="peso">
+  
+        <button id="btn">Calcular</button>
+  
+        <div id="resultado"></div>
+    <script>
+      window.onload = () => {
+        let button = document.querySelector("#btn");
+
+        
+        button.addEventListener("click", calcularIMC);
+      };
+
+      function calcularIMC() {
+        
+        let altura = parseInt(document.querySelector("#altura").value);
+        let peso = parseInt(document.querySelector("#peso").value);
+
+        let resultado = document.querySelector("#resultado");
+
+          let imc = (peso / ((altura * altura) / 10000)).toFixed(2);
+
+
+          if (imc < 18.5)
+          resultado.innerHTML = `Magreza : <span>${imc}</span>`;
+          else if (imc >= 18.5 && imc < 24.9)
+          resultado.innerHTML = `Normal : <span>${imc}</span>`;
+          else if (imc >= 24.9 && imc < 30)
+          resultado.innerHTML = `Sobrepeso : <span>${imc}</span>`;
+          else resultado.innerHTML = `Obesidade : <span>${imc}</span>`;
+        }
+    </script>
+    </div>
+  </body>
+</html>
